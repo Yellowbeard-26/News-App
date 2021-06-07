@@ -24,6 +24,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <com.glide.slider.library.SliderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="12dp"
+                    android:id="@+id/slider"/>
+
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -32,7 +38,9 @@
                     <GridView
                         android:id="@+id/grid_view"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:numColumns="4"
+                        android:layout_height="200dp"
+                        android:padding="12dp">
 
                     </GridView>
 
@@ -45,6 +53,10 @@
                     android:layout_height="wrap_content">
 
                 </androidx.recyclerview.widget.RecyclerView>
+
+                <include layout="@layout/items_news_image"/>
+                <include layout="@layout/items_news"/>
+
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
