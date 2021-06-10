@@ -12,53 +12,132 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
+
 
                 <com.glide.slider.library.SliderLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/slider"
+                    android:layout_width="0dp"
                     android:layout_height="200dp"
-                    android:layout_marginBottom="12dp"
-                    android:id="@+id/slider"/>
-
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:id="@+id/cardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/recy_news"
+                    app:layout_constraintTop_toBottomOf="@+id/slider">
 
                     <GridView
                         android:id="@+id/grid_view"
                         android:layout_width="match_parent"
-                        android:numColumns="4"
-                        android:layout_height="200dp"
-                        android:padding="12dp">
+                        android:layout_height="190dp"
 
-                    </GridView>
+                        android:numColumns="4"
+                        android:padding="12dp" />
 
 
                 </androidx.cardview.widget.CardView>
 
+                <include
+                    android:id="@+id/include"
+                    layout="@layout/items_news_image"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    app:layout_constraintBottom_toTopOf="@+id/include2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recy_news" />
+
+                                <include
+                                    android:id="@+id/include2"
+                                    layout="@layout/items_news"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="4dp"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginEnd="4dp"
+                                    android:layout_marginRight="4dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/include"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recy_news"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/border"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.307"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+                    app:layout_constraintVertical_bias="0.0">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
-                <include layout="@layout/items_news_image"/>
-                <include layout="@layout/items_news"/>
+                <EditText
+                    android:id="@+id/editTextTextPersonName3"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@android:drawable/edit_text"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Search News"
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toStartOf="@+id/button"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="85dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/roundedbutton"
+                    android:text="Search"
+
+                    android:textColor="#FBFBFB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView"
+                    tools:ignore="MissingConstraints" />
 
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

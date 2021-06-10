@@ -30,10 +30,11 @@ public class Gridcategoryadapter extends BaseAdapter {
         demoCategories.add(new DemoCategory("Basic", R.drawable.img4));
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
+        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
+
+
 
     }
 
