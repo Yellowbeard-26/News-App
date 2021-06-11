@@ -25,17 +25,14 @@ public class Gridcategoryadapter extends BaseAdapter {
         this.context = context;
         layoutInflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         demoCategories=new ArrayList<>();
-
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
         demoCategories.add(new DemoCategory("Basic", R.drawable.img4));
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
         demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-
-
-
+        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
+        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
     }
 
     @Override

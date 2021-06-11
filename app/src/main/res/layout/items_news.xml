@@ -20,6 +20,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/news_title"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
             android:layout_toEndOf="@id/news_image"
             android:layout_toRightOf="@id/news_image"
             android:lineSpacingExtra="5dp"
@@ -28,22 +31,23 @@
             android:paddingRight="10dp"
             android:text="Description"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/news_image"
-            app:layout_constraintTop_toBottomOf="@+id/news_title"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/news_title" />
 
         <TextView
             android:id="@+id/news_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@id/news_image"
             android:layout_toRightOf="@id/news_image"
             android:lineSpacingExtra="5dp"
-            android:maxLines="3"
+            android:maxLines="1"
             android:paddingEnd="10dp"
             android:paddingRight="10dp"
             android:text="Title"
@@ -69,7 +73,10 @@
             android:id="@+id/news_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:text="Date"
+            android:textSize="8dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/news_source"
             app:layout_constraintStart_toEndOf="@+id/news_image" />
 
@@ -77,21 +84,12 @@
             android:id="@+id/news_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:text="Source"
-            app:layout_constraintBaseline_toBaselineOf="@+id/news_views"
-            app:layout_constraintStart_toEndOf="@+id/news_date" />
-
-        <TextView
-            android:id="@+id/news_views"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textSize="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
-            android:text="100 views"
-            app:layout_constraintStart_toEndOf="@+id/news_source"
+            android:text="Source"
+            app:layout_constraintStart_toEndOf="@+id/news_date"
             app:layout_constraintTop_toBottomOf="@+id/news_desc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
