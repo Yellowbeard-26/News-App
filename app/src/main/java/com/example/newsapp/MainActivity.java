@@ -1,5 +1,6 @@
 package com.example.newsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.GridView;
@@ -100,21 +101,33 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        sliderLayout.stopAutoCycle();
+//        sliderLayout.stopAutoCycle();
     }
 
 
     private void updatedatahomepage(HomepageModel body) {
+        int i1;
 
 
-            for(int i=0;i<body.getArticles().size();i++)
+
+            for(i1=0;i1<body.getArticles().size();i1++)
             {
                 DefaultSliderView defaultSliderView=new DefaultSliderView(this);
                 defaultSliderView.setRequestOption(new RequestOptions().fitCenter());
-                defaultSliderView.image(body.getArticles().get(i).getUrlToImage());
+                defaultSliderView.image(body.getArticles().get(i1).getUrlToImage());
+                int finalI = i1;
                 defaultSliderView.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
                     @Override
                     public void onSliderClick(BaseSliderView slider) {
+                        Intent i=new Intent(getApplicationContext(), News_content.class);
+                        i.putExtra("url",body.getArticles().get(finalI).getUrlToImage());
+                        i.putExtra("title",body.getArticles().get(finalI).getTitle());
+                        i.putExtra("desc",body.getArticles().get(finalI).getDescription());
+                        i.putExtra("Content",body.getArticles().get(finalI).getContent());
+                        i.putExtra("uri",body.getArticles().get(finalI).getUrl());
+                        i.putExtra("auth",body.getArticles().get(finalI).getAuthor());
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        getApplicationContext().startActivity(i);
 
                     }
                 });

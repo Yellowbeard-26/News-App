@@ -9,8 +9,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/category_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
@@ -30,7 +30,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Hello"
+        android:textColor="#FA070101"
         android:textSize="18sp"
+        android:textStyle="normal|bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"

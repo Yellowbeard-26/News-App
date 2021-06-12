@@ -1,6 +1,7 @@
 package com.example.newsapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.newsapp.HomepageModel;
+import com.example.newsapp.News_content;
 import com.example.newsapp.R;
 
 import java.util.List;
@@ -62,18 +64,32 @@ public class Newsadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         ViewHolder viewHolder=(ViewHolder) holder;
         viewHolder.newsTitle.setText(singleNews.getTitle());
-        viewHolder.newsDesc.setText(singleNews.getDescription());
+       // viewHolder.newsDesc.setText(singleNews.getDescription());
         viewHolder.newsDate.setText(singleNews.getPublishedAt());
 
         if(singleNews.getSource().getName() !=null)
         {
-            viewHolder.newsSource.setText(singleNews.getSource().getName());
+            viewHolder.newsSource.setText(singleNews.getAuthor());
         }
 
         Glide.with(context)
                 .load(singleNews.getUrlToImage())
                 .into(viewHolder.newsImage);
 
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(context, News_content.class);
+                i.putExtra("url",singleNews.getUrlToImage());
+                i.putExtra("title",singleNews.getTitle());
+                i.putExtra("desc",singleNews.getDescription());
+                i.putExtra("Content",singleNews.getContent());
+                i.putExtra("uri",singleNews.getUrl());
+                i.putExtra("auth",singleNews.getAuthor());
+                context.startActivity(i);
+            }
+        });
 
 
 
@@ -99,7 +115,7 @@ public class Newsadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             newsImage=holder.findViewById(R.id.news_image);
             newsTitle=holder.findViewById(R.id.news_title);
             newsDate=holder.findViewById(R.id.news_date);
-            newsDesc=holder.findViewById(R.id.news_desc);
+          //  newsDesc=holder.findViewById(R.id.news_desc);
             newsSource=holder.findViewById(R.id.news_source);
         }
     }

@@ -25,14 +25,14 @@ public class Gridcategoryadapter extends BaseAdapter {
         this.context = context;
         layoutInflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         demoCategories=new ArrayList<>();
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basic", R.drawable.img4));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
-        demoCategories.add(new DemoCategory("Basics", R.drawable.img1));
+        demoCategories.add(new DemoCategory("Buisness", R.drawable.buisness));
+        demoCategories.add(new DemoCategory("Cars", R.drawable.cars));
+        demoCategories.add(new DemoCategory("Movies", R.drawable.movies));
+        demoCategories.add(new DemoCategory("Health", R.drawable.health));
+        demoCategories.add(new DemoCategory("Politics", R.drawable.politics));
+        demoCategories.add(new DemoCategory("Religion", R.drawable.religion));
+        demoCategories.add(new DemoCategory("Tech", R.drawable.tech));
+        demoCategories.add(new DemoCategory("Science", R.drawable.science));
     }
 
     @Override
