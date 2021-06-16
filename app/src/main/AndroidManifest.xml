@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Activities.YoutubeActivity"></activity>
         <activity android:name=".News_content" />
         <activity android:name=".MainActivity">
             <intent-filter>

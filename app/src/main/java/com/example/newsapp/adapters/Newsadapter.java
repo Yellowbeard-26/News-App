@@ -33,7 +33,7 @@ public class Newsadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        if(position==0)
+        if(position%1==0)
         {
             return image_top;
         }else

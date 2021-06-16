@@ -26,7 +26,7 @@ public class Gridcategoryadapter extends BaseAdapter {
         layoutInflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         demoCategories=new ArrayList<>();
         demoCategories.add(new DemoCategory("Buisness", R.drawable.buisness));
-        demoCategories.add(new DemoCategory("Cars", R.drawable.cars));
+        demoCategories.add(new DemoCategory("Sports", R.drawable.cars));
         demoCategories.add(new DemoCategory("Movies", R.drawable.movies));
         demoCategories.add(new DemoCategory("Health", R.drawable.health));
         demoCategories.add(new DemoCategory("Politics", R.drawable.politics));

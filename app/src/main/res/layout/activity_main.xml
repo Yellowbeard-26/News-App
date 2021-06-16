@@ -30,7 +30,7 @@
                 <com.glide.slider.library.SliderLayout
                     android:id="@+id/slider"
                     android:layout_width="0dp"
-                    android:layout_height="200dp"
+                    android:layout_height="250dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
                     <GridView
                         android:id="@+id/grid_view"
                         android:layout_width="match_parent"
-                        android:layout_height="210dp"
+                        android:layout_height="175dp"
 
                         android:numColumns="4"
                         android:padding="12dp" />
@@ -85,14 +85,14 @@
                     android:gravity="center"
                     android:hint="Search News"
                     android:inputType="textPersonName"
-                    app:layout_constraintEnd_toStartOf="@+id/button"
+                    app:layout_constraintEnd_toStartOf="@+id/Buttonsearch"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView"
                     tools:ignore="MissingConstraints" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/Buttonsearch"
                     android:layout_width="85dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="16dp"
@@ -111,6 +111,15 @@
         </androidx.core.widget.NestedScrollView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
