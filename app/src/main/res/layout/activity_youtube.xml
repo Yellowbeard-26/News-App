@@ -13,30 +13,30 @@
 
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbary"
-            app:title="Youtube Video"
-            app:titleTextColor="@color/white"
+            android:background="#D51010"
             app:layout_scrollFlags="enterAlways"
-            app:Layout_collapseMode="pin"/>
+            app:title="Youtube Video"
+            app:titleTextColor="#F8F7F7"/>
 
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tablayout"
-            app:tabIndicatorColor="@color/white"
+            android:background="#BC1A1A"
             app:layout_scrollFlags="enterAlways"
+            app:tabIndicatorColor="@color/white"
             app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/white"
-            />
+            app:tabSelectedTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/view_pager"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

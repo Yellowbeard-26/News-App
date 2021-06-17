@@ -16,16 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bumptech.glide.request.RequestOptions;
+import com.example.newsapp.Activities.YoutubeActivity;
 import com.example.newsapp.adapters.Gridcategoryadapter;
 import com.example.newsapp.adapters.Newsadapter;
 import com.glide.slider.library.SliderLayout;
 import com.glide.slider.library.slidertypes.BaseSliderView;
 import com.glide.slider.library.slidertypes.DefaultSliderView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     String apikey="2e5f4dfb507d42ce97e65b4158ece119";
     EditText Searchbar;
     boolean isfromstart=true;
+    FloatingActionButton floatingActionButton;
 
 
     @Override
@@ -115,15 +116,25 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         addimagestoslider();
 
         getData();
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(MainActivity.this, YoutubeActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+
     }
 
     private void getData() {
-        apiInterface in = Apiclient.getApiClient().create(apiInterface.class);
-        Map<String, String> params = new HashMap<>();
-        params.put("page", 1 + "");
-        params.put("posts", 10 + "");
+        Retrofit retrofit1=new Retrofit.Builder().baseUrl("https://newsapi.org/v2/")
+                .addConverterFactory(GsonConverterFactory.create()).build();
 
-        Call<HomepageModel> call = in.getApi(params);
+        apiInterface api=retrofit1.create(apiInterface.class);
+        Call<HomepageModel> call = api.getApi();
         call.enqueue(new Callback<HomepageModel>() {
 
             @Override
@@ -153,6 +164,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
     private void InitiateViews() {
+
+
+
+
+        floatingActionButton=findViewById(R.id.floater);
+
         sliderLayout=(SliderLayout) findViewById(R.id.slider);
         gridView=findViewById(R.id.grid_view);
         adapter=new Gridcategoryadapter(this);
