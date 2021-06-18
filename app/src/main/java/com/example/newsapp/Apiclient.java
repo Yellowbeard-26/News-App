@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Apiclient extends AppCompatActivity {
 
-    public static final String BaseURl="http://192.168.0.177/newsapp/wp-json/api/";
+    public static final String BaseURl="http://192.168.43.191/newsapp/wp-json/api/";
 
     private static Retrofit retrofit=null;
     public static Retrofit getApiClient()

@@ -15,7 +15,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.newsapp.adapters.YoutubeAdapter;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -24,7 +28,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class FragmentYoutube extends Fragment {
+public class FragmentYoutube extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
 
     RecyclerView recyclerView;
@@ -32,9 +36,13 @@ public class FragmentYoutube extends Fragment {
     ProgressBar progressBar;
     Context context;
 String cid,pageToken="";
+
+YoutubeAdapter youtubeAdapter;
+List<Ytmodel.Item> items=new ArrayList<>();
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        this.context=context;
     }
 
     @Nullable
@@ -45,13 +53,15 @@ String cid,pageToken="";
         swipeRefreshLayout=view.findViewById(R.id.swipe);
         progressBar=view.findViewById(R.id.prog);
 
+        youtubeAdapter=new YoutubeAdapter(context,items);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(context);
         recyclerView.setLayoutManager(linearLayoutManager);
-
+        cid=getArguments().getString("cid");
         LoadDatafromServer();
 
+        swipeRefreshLayout.setOnRefreshListener(this);
 
-        cid=getArguments().getString("cid");
+
         return view;
     }
 
@@ -64,7 +74,7 @@ String cid,pageToken="";
         Map<String,String> params=new HashMap<>();
         params.put("part","snippet");
         params.put("channelId",cid);
-        params.put("maxResults","10");
+        params.put("maxResults","20");
         params.put("pageToken",pageToken);
         params.put("key","AIzaSyCZTyu0wYYPJyAjFTVXFSaDyJchJI0KFkc");
 
@@ -74,7 +84,10 @@ String cid,pageToken="";
         call.enqueue(new Callback<Ytmodel>() {
             @Override
             public void onResponse(Call<Ytmodel> call, Response<Ytmodel> response) {
-                
+                items.clear();
+                items.addAll(response.body().getItems());
+                recyclerView.setAdapter(youtubeAdapter);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -85,5 +98,12 @@ String cid,pageToken="";
                 progressBar.setVisibility(View.GONE);
             }
         });
+        swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onRefresh() {
+        LoadDatafromServer();
+        progressBar.setVisibility(View.GONE);
     }
 }

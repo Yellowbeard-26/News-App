@@ -44,8 +44,13 @@ public class News_content extends AppCompatActivity {
         q=intent.getStringExtra("uri");
         Auth=findViewById(R.id.author);
         y=intent.getStringExtra("auth");
-        Auth.setText(y);
-
+        if(y==null)
+        {
+            Auth.setText("Anonymous");
+        }
+        else {
+            Auth.setText(y);
+        }
         button=findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

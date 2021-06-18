@@ -1,24 +1,19 @@
 package com.example.newsapp.Activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.newsapp.Apiclient;
+import com.example.newsapp.MyData;
 import com.example.newsapp.OurYtmodel;
 import com.example.newsapp.R;
 import com.example.newsapp.adapters.ViewPagerAdapter;
-import com.example.newsapp.apiInterface;
 import com.google.android.material.tabs.TabLayout;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.ArrayList;
 
 public class YoutubeActivity extends AppCompatActivity {
 
@@ -27,6 +22,7 @@ public class YoutubeActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPagerAdapter viewPagerAdapter;
 
+    private static ArrayList<OurYtmodel> y;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +39,7 @@ public class YoutubeActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Youtube Videos");
+        getSupportActionBar().setTitle("News Videos");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,30 +52,38 @@ public class YoutubeActivity extends AppCompatActivity {
 
     private void getYoutubedata() {
 
-        Log.e("ytact", "getYoutubedata:in" );
-        apiInterface in = Apiclient.getApiClient().create(apiInterface.class);
-        Call<OurYtmodel> call = in.getYoutubedataFromServer();
 
-
-
-        call.enqueue(new Callback<OurYtmodel>() {
-            @Override
-            public void onResponse(Call<OurYtmodel> call, Response<OurYtmodel> response) {
-
-                Log.e("ytact", "onResponse: "+response.body() );
-                viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),response.body(),YoutubeActivity.this);
-                viewPager.setAdapter(viewPagerAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<OurYtmodel> call, Throwable t) {
-
-                Log.e("ytct", "onFailure: "+ t);
-                Toast.makeText(YoutubeActivity.this,"Failure",Toast.LENGTH_SHORT).show();
-            }
-        });
+        y=new ArrayList<>();
+        for(int i=0;i< MyData.Title.length;i++)
+        {
+            y.add(new OurYtmodel(MyData.channelid[i],MyData.Title[i]));
+        }
+        viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),y,YoutubeActivity.this);
+              viewPager.setAdapter(viewPagerAdapter);
 
     }
 
-
+//        Log.e("ytact", "getYoutubedata:in" );
+//        apiInterface in = Apiclient.getApiClient().create(apiInterface.class);
+//        Call<OurYtmodel> call = in.getYoutubedataFromServer();
+//
+//
+//
+//        call.enqueue(new Callback<OurYtmodel>() {
+//            @Override
+//            public void onResponse(Call<OurYtmodel> call, Response<OurYtmodel> response) {
+//
+//                Log.e("ytact", "onResponse: "+response.body() );
+//                viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),response.body(),YoutubeActivity.this);
+//                viewPager.setAdapter(viewPagerAdapter);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<OurYtmodel> call, Throwable t) {
+//
+//                Log.e("ytct", "onFailure: "+ t);
+//                Toast.makeText(YoutubeActivity.this,t.getMessage(),Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 }

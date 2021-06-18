@@ -12,11 +12,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.newsapp.FragmentYoutube;
 import com.example.newsapp.OurYtmodel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     Context context;
-    OurYtmodel ourYtmodel;
-    public ViewPagerAdapter(@NonNull FragmentManager fm, OurYtmodel ourYtmodel, Context context) {
+    List<OurYtmodel> ourYtmodel;
+    public ViewPagerAdapter(@NonNull FragmentManager fm, ArrayList<OurYtmodel> ourYtmodel, Context context) {
         super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.context=context;
         this.ourYtmodel=ourYtmodel;
@@ -27,7 +30,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
 
         Bundle bundle=new Bundle();
-        bundle.putString("cid",ourYtmodel.getYoutubeData().get(position).getChannelId());
+        bundle.putString("cid",ourYtmodel.get(position).getChannelid());
         FragmentYoutube fragmentYoutube=new FragmentYoutube();
         fragmentYoutube.setArguments(bundle);
         return fragmentYoutube;
@@ -35,12 +38,12 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return ourYtmodel.getYoutubeData().size();
+        return ourYtmodel.size();
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return ourYtmodel.getYoutubeData().get(position).getTitle();
+        return ourYtmodel.get(position).getTitle();
     }
 }

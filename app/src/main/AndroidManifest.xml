@@ -13,15 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.YoutubeActivity"></activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".Activities.YoutubevideoActivity" />
+        <activity android:name=".Activities.YoutubeActivity" />
         <activity android:name=".News_content" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

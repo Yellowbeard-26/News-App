@@ -17,8 +17,8 @@ public interface apiInterface {
     Call<HomepageModel> getCustom(@Query("q") String se,@Query("apiKey") String key);
 
 
-    @GET("youtube")
-    Call<OurYtmodel> getYoutubedataFromServer();
+//    @GET("youtube")
+//    Call<OurYtmodel> getYoutubedataFromServer();
 
     @GET("activities")
     Call<Ytmodel> getYoutubeServerdata(@QueryMap Map<String,String> params);

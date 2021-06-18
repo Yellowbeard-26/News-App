@@ -60,6 +60,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.1.0')
     implementation 'com.google.firebase:firebase-analytics'
 
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+
 
 
 }
